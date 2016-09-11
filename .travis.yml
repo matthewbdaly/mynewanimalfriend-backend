@@ -6,4 +6,4 @@ php:
 services: redis-server
 before_script: composer install
 script: vendor/bin/phpunit
-sudo: false
+sudo: true
