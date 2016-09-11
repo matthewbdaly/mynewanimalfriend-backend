@@ -21,3 +21,12 @@ $factory->define(AnimalFriend\User::class, function (Faker\Generator $faker) {
         'remember_token' => str_random(10),
     ];
 });
+
+$factory->define(AnimalFriend\Pet::class, function (Faker\Generator $faker) {
+    return [
+        'name' => $faker->firstNameMale,
+        'type' => 'Cat',
+        'available' => 1,
+        'picture' => '1.jpg'
+    ];
+});
