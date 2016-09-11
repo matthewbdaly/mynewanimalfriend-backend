@@ -58,7 +58,11 @@ class PetController extends Controller
      */
     public function show($id)
     {
-        //
+        // Get pet
+        $pet = $this->pet->findOrFail($id);
+
+        // Send response
+        return response()->json($pet, 200);
     }
 
     /**

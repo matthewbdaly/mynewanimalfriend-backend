@@ -12,7 +12,7 @@ class PetModelTest extends TestCase
     public function testCreatingAPet()
     {
         // Create a Pet
-        $user = factory(AnimalFriend\Pet::class)->create([
+        $pet = factory(AnimalFriend\Pet::class)->create([
             'name' => 'Freddie',
             'type' => 'Cat',
         ]);
