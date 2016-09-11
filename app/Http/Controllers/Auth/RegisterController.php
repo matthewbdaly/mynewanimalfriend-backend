@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace AnimalFriend\Http\Controllers\Auth;
 
-use App\User;
+use AnimalFriend\User;
 use Validator;
-use App\Http\Controllers\Controller;
+use AnimalFriend\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\RegistersUsers;
 
 class RegisterController extends Controller

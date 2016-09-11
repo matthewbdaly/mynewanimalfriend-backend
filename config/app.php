@@ -172,11 +172,11 @@ return [
         /*
          * Application Service Providers...
          */
-        App\Providers\AppServiceProvider::class,
-        // App\Providers\BroadcastServiceProvider::class,
-        App\Providers\AuthServiceProvider::class,
-        App\Providers\EventServiceProvider::class,
-        App\Providers\RouteServiceProvider::class,
+        AnimalFriend\Providers\AppServiceProvider::class,
+        // AnimalFriend\Providers\BroadcastServiceProvider::class,
+        AnimalFriend\Providers\AuthServiceProvider::class,
+        AnimalFriend\Providers\EventServiceProvider::class,
+        AnimalFriend\Providers\RouteServiceProvider::class,
         Tymon\JWTAuth\Providers\JWTAuthServiceProvider::class,
         Barryvdh\Cors\ServiceProvider::class,
 
