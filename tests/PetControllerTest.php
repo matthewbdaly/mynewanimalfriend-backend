@@ -108,7 +108,7 @@ class PetControllerTest extends TestCase
         );
 
         // Send it
-        $response = $this->call('GET', '/api/pets/1');
+        $this->json('GET', '/api/pets/1', [], $headers);
         $this->assertResponseStatus(404);
     }
 
