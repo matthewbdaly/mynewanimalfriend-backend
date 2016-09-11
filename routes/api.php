@@ -14,3 +14,8 @@ use Illuminate\Http\Request;
 */
 
 Route::post('authenticate', 'AuthenticateController@authenticate');
+
+// Auth routes
+Route::group(['middleware' => ['jwt.auth']], function () {
+    Route::resource('pets', 'PetController');
+});

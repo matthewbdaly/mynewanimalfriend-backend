@@ -5,13 +5,13 @@ use AnimalFriend\Pet;
 class PetModelTest extends TestCase
 {
     /**
-     * Test creating a user
+     * Test creating a pet
      *
      * @return void
      */
-    public function testCreatingAUser()
+    public function testCreatingAPet()
     {
-        // Create a User
+        // Create a Pet
         $user = factory(AnimalFriend\Pet::class)->create([
             'name' => 'Freddie',
             'type' => 'Cat',
