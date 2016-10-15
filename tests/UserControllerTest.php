@@ -33,7 +33,7 @@ class UserControllerTest extends TestCase
             'name' => 'Bob Smith',
             'email' => 'bob@example.com',
             'password' => 'password',
-            'confpassword' => 'password'
+            'password_confirmation' => 'password'
         );
         $this->json('POST', '/api/users', $data);
         $this->assertResponseStatus(201);
@@ -65,7 +65,7 @@ class UserControllerTest extends TestCase
             'name' => 'Bob Smith',
             'email' => 'bob@example.com',
             'password' => 'password',
-            'confpassword' => 'password'
+            'password_confirmation' => 'password'
         );
         $this->json('POST', '/api/users', $data);
         $this->assertResponseStatus(422);

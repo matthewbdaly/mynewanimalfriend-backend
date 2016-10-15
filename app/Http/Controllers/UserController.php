@@ -49,8 +49,7 @@ class UserController extends Controller
         $valid = $this->validate($request, [
             'email' => 'required|email|unique:users,email',
             'name' => 'required|string',
-            'password' => 'required',
-            'confpassword' => 'required|same:password'
+            'password' => 'required|confirmed'
         ]);
 
         // Create user
