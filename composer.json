@@ -20,7 +20,8 @@
     },
     "autoload": {
         "classmap": [
-            "database"
+            "database",
+            "app/Repositories"
         ],
         "psr-4": {
             "AnimalFriend\\": "app/"

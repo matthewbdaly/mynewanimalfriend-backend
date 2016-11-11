@@ -23,6 +23,13 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->app->bind(
+            'AnimalFriend\Repositories\Interfaces\PetRepositoryInterface',
+            'AnimalFriend\Repositories\EloquentPetRepository'
+        );
+        $this->app->bind(
+            'AnimalFriend\Repositories\Interfaces\UserRepositoryInterface',
+            'AnimalFriend\Repositories\EloquentUserRepository'
+        );
     }
 }

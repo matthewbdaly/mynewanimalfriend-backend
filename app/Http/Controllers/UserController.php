@@ -5,7 +5,7 @@ namespace AnimalFriend\Http\Controllers;
 use Illuminate\Http\Request;
 
 use AnimalFriend\Http\Requests;
-use AnimalFriend\User;
+use AnimalFriend\Repositories\Interfaces\UserRepositoryInterface as User;
 use JWTAuth;
 use Hash;
 
@@ -52,15 +52,12 @@ class UserController extends Controller
             'password' => 'required|confirmed'
         ]);
 
-        // Create user
-        $user = new $this->user;
-        $user->email = $request->input('email');
-        $user->name = $request->input('name');
-        $user->password = Hash::make($request->input('password'));
-        $user->save();
-
         // Create token
-        $token = JWTAuth::fromUser($user);
+        $token = $this->user->create($request->only(
+            'email',
+            'name',
+            'password'
+        ));
 
         // Send response
         return response()->json(['token' => $token], 201);

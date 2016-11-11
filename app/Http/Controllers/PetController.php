@@ -5,7 +5,7 @@ namespace AnimalFriend\Http\Controllers;
 use Illuminate\Http\Request;
 
 use AnimalFriend\Http\Requests;
-use AnimalFriend\Pet;
+use AnimalFriend\Repositories\Interfaces\PetRepositoryInterface as Pet;
 
 class PetController extends Controller
 {
@@ -23,7 +23,7 @@ class PetController extends Controller
     public function index()
     {
         // Get all pets
-        $pets = $this->pet->get();
+        $pets = $this->pet->all();
 
         // Send response
         return response()->json($pets, 200);
