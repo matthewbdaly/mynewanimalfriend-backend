@@ -9,7 +9,8 @@
         "laravel/framework": "5.3.*",
         "barryvdh/laravel-cors": "^0.8.2",
         "tymon/jwt-auth": "^0.5.9",
-        "predis/predis": "^1.1"
+        "predis/predis": "^1.1",
+        "league/fractal": "^0.14.0"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
