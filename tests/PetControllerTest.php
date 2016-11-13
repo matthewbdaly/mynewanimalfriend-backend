@@ -55,14 +55,14 @@ class PetControllerTest extends TestCase
         // Send it
         $this->json('GET', '/api/pets', [], $headers)
             ->seeJsonStructure([
-                '*' => [
-                    'id',
-                    'name',
-                    'type',
-                    'available',
-                    'picture',
-                    'created_at',
-                    'updated_at'
+                'data' => [
+                    '*' => [
+                        'id',
+                        'name',
+                        'type',
+                        'available',
+                        'picture'
+                    ]
                 ]
             ]);
         $this->assertResponseStatus(200);
@@ -142,13 +142,13 @@ class PetControllerTest extends TestCase
         // Send it
         $this->json('GET', '/api/pets/'.$pet->id, [], $headers)
             ->seeJsonStructure([
-                'id',
-                'name',
-                'type',
-                'available',
-                'picture',
-                'created_at',
-                'updated_at'
+                'data' => [
+                    'id',
+                    'name',
+                    'type',
+                    'available',
+                    'picture'
+                ]
             ]);
         $this->assertResponseStatus(200);
     }

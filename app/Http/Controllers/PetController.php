@@ -6,13 +6,17 @@ use Illuminate\Http\Request;
 
 use AnimalFriend\Http\Requests;
 use AnimalFriend\Repositories\Interfaces\PetRepositoryInterface as Pet;
+use AnimalFriend\Transformers\PetTransformer;
+use League\Fractal;
+use League\Fractal\Manager;
 
 class PetController extends Controller
 {
-    private $pet;
+    private $pet, $fractal;
 
-    public function __construct(Pet $pet) {
+    public function __construct(Pet $pet, Manager $fractal) {
         $this->pet = $pet;
+        $this->fractal = $fractal;
     }
 
     /**
@@ -25,8 +29,12 @@ class PetController extends Controller
         // Get all pets
         $pets = $this->pet->all();
 
+        // Format it
+        $resource = new Fractal\Resource\Collection($pets, new PetTransformer);
+        $data = $this->fractal->createData($resource)->toArray();
+
         // Send response
-        return response()->json($pets, 200);
+        return response()->json($data, 200);
     }
 
     /**
@@ -61,8 +69,12 @@ class PetController extends Controller
         // Get pet
         $pet = $this->pet->findOrFail($id);
 
+        // Format it
+        $resource = new Fractal\Resource\Item($pet, new PetTransformer);
+        $data = $this->fractal->createData($resource)->toArray();
+
         // Send response
-        return response()->json($pet, 200);
+        return response()->json($data, 200);
     }
 
     /**
